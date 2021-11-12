@@ -17,13 +17,14 @@ const SignUp = props => {
 
     function handleCreateUser(e) {
         e.preventDefault()
-        const resp = createUser({
+        createUser({
             name,
             lastName,
             document,
             email,
             password
         })
+        //console.log(resp);
 
         if (localStorage.getItem('jwt')) {
             history.push('/home')

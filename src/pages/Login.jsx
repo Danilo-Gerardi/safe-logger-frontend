@@ -15,9 +15,11 @@ const Login = props => {
         e.preventDefault();
         signIn({ email, password });
 
-        if (localStorage.getItem('jwt')) {
-            history.push('/home');
-        }
+        // if (localStorage.getItem('jwt') /*&& localStorage.getItem('type') == 'user'*/) {
+        //     history.push('/home');
+        // } //else if(localStorage.getItem('jwt') && localStorage.getItem('type') == 'organization') {
+        //history.push('/home/organization');
+        //}
     }
 
     return (

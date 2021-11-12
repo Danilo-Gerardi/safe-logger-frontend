@@ -12,11 +12,11 @@ const createUser = (user) => {
                 email: user.email,
                 password: user.password
             });
-            return res;
+            //return res;
         })
-        .catch(res => {
+        .catch(err => {
             console.log('Ocorreu um erro ao criar a conta. Por favor, tente mais tarde')
-            console.log(res)
+            console.log(err)
         })
 }
 
