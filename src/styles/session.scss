@@ -1,0 +1,119 @@
+.session-header {
+    background-color: rgb(53, 53, 228);
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;    
+        
+}
+
+
+.session-header-inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px 0 15px;
+    flex-grow: 1;
+    font-size: large;
+    font-weight: 800;
+
+    .logout:hover {
+        color: magenta;
+        cursor: pointer;    
+    }
+
+    
+}
+
+.session-footer {
+    background-color: rgb(53, 53, 228);
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+
+.session-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    
+    text-align: center;
+    
+}
+
+.greeting {
+    font-family: Lato-Regular, Arial, Helvetica, sans-serif;
+    font-size: 0.7cm;
+    position: relative;
+    top: 20px;
+    font-weight: 600;
+    color: rgb(83, 80, 80);
+    // border: 1px black solid;
+    
+}
+
+.date-info {
+    font-size: 0.5cm;
+    font-family: Lato-Regular, Arial, Helvetica, sans-serif;
+    color: rgb(83, 80, 80);
+    position: relative;
+    top: 28px;
+    // border: 1px black solid;
+}
+
+.time {
+    font-size: 150px;
+    font-family: Lato-Regular, Arial, Helvetica, sans-serif;
+    color: rgb(83, 80, 80);
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../assets/Lato/Lato-Regular.ttf');
+}
+
+.entire-view {
+    height: 100vh;
+    background-color: rgb(243, 242, 229);
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.middle {
+    flex-grow: .6;
+    display: flex;
+}
+
+
+.logs {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    align-items: center;
+    font-family: Lato-Regular, Arial, Helvetica, sans-serif;
+    color: rgb(83, 80, 80);
+}
+
+.log-time {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.times {
+    //border: 1px red solid;
+    margin: 50px 0 20px 0;
+}
+
+.buttons {
+    font-family: Lato-Regular, Arial, Helvetica, sans-serif;
+    //border: 1px red solid;
+    margin-top: 40px;
+
+    .second-button {
+        margin-top: 20px;
+    }
+}
