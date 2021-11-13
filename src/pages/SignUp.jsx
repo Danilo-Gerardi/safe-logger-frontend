@@ -4,6 +4,8 @@ import createUser from '../service/createUser';
 import '../styles/home.scss';
 import '../styles/login.scss';
 import { cpf } from 'cpf-cnpj-validator';
+import errorStyles from '../styles/errors/errorStyle';
+
 
 const SignUp = props => {
     const history = useHistory();
@@ -23,16 +25,16 @@ const SignUp = props => {
             document,
             email,
             password
-        }, () => history.push('/home'))
+        }, () => history.push('/home'), errorStyles[1])
 
     }
 
-    function handleChangeStyle(cpfNumber) {
+    function handleChangeStyle(cpfNum) {
         setClasse("red-border")
 
-        setDocument(cpfNumber)
+        setDocument(cpfNum)
 
-        if (cpf.isValid(cpfNumber)) {
+        if (cpf.isValid(cpfNum)) {
             setClasse("green-border")
         } else {
             setClasse("red-border")
@@ -76,27 +78,31 @@ const SignUp = props => {
                         <input
                             className={classe}
                             type="text"
-                            placeholder="CPF"
+                            placeholder="Cpf"
                             onChange={e => handleChangeStyle(e.target.value)}
                             value={document}
 
                         />
                         <input
+                            id="email"
                             type="text"
-                            placeholder="Digite seu email"
+                            placeholder="Email"
                             onChange={e => {
                                 setLogin(e.target.value)
                             }}
                             value={email}
+                            onClick={errorStyles[0]}
 
                         />
                         <input
+                            id="password"
                             type="password"
                             placeholder="Senha"
                             onChange={e => {
                                 setPassword(e.target.value)
                             }}
                             value={password}
+                            onClick={errorStyles[0]}
 
                         />
                         <input

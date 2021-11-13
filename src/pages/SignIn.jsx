@@ -2,7 +2,7 @@ import '../styles/home.scss';
 import { useHistory } from 'react-router';
 import signIn from '../service/signIn';
 import { useState } from 'react';
-
+import errorStyles from '../styles/errors/errorStyle';
 
 const SignIn = props => {
     const [email, setEmail] = useState('');
@@ -11,22 +11,7 @@ const SignIn = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        signIn({ email, password }, () => history.push('/home'), error);
-    }
-
-    function error() {
-        document.getElementById("email").style.borderColor = "yellow"
-        document.getElementById("password").style.borderColor = "yellow"
-        document.getElementById("email").placeholder = "Email incorreto"
-        document.getElementById("password").placeholder = "Senha incorreta"
-
-    }
-
-    function removeYellowBorder() {
-        document.getElementById("email").style.borderColor = ""
-        document.getElementById("password").style.borderColor = ""
-        document.getElementById("email").placeholder = "Email"
-        document.getElementById("password").placeholder = "Senha"
+        signIn({ email, password }, () => history.push('/home'), errorStyles[1]);
     }
 
     return (
@@ -42,7 +27,7 @@ const SignIn = props => {
                             placeholder="Email"
                             onChange={e => setEmail(e.target.value)}
                             value={email}
-                            onClick={removeYellowBorder}
+                            onClick={errorStyles[0]}
                         />
                         <input
                             id="password"
@@ -50,7 +35,7 @@ const SignIn = props => {
                             placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
                             value={password}
-                            onClick={removeYellowBorder}
+                            onClick={errorStyles[0]}
 
 
                         />

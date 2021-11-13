@@ -2,6 +2,7 @@ import '../styles/home.scss';
 import { useHistory } from 'react-router';
 import signIn from '../service/signIn';
 import { useState } from 'react';
+import errorStyle from '../styles/errors/errorStyle';
 
 
 const SignInBusiness = props => {
@@ -11,12 +12,7 @@ const SignInBusiness = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        signIn({ email, password }, () => history.push('/home/business'));
-
-        setTimeout(() => {
-            history.push('/home/business');
-        })
-
+        signIn({ email, password }, () => history.push('/home/business'), errorStyle[1]);
     }
 
     return (
@@ -27,17 +23,21 @@ const SignInBusiness = props => {
                     <h2>Conta Business</h2>
                     <form onSubmit={handleSignIn}>
                         <input
+                            id="email"
                             type="text"
                             placeholder="Login"
                             onChange={e => setEmail(e.target.value)}
                             value={email}
+                            onClick={errorStyle[0]}
 
                         />
                         <input
+                            id="password"
                             type="password"
                             placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
                             value={password}
+                            onClick={errorStyle[0]}
 
                         />
                         <button>

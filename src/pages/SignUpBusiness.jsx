@@ -3,7 +3,8 @@ import { useState } from 'react';
 import createUser from '../service/createUser';
 import '../styles/home.scss';
 import '../styles/login.scss';
-import { cpf } from 'cpf-cnpj-validator';
+import { cnpj } from 'cpf-cnpj-validator';
+import errorStyles from '../styles/errors/errorStyle';
 
 
 const SignUpBusiness = props => {
@@ -24,16 +25,16 @@ const SignUpBusiness = props => {
             document,
             email,
             password
-        }, () => history.push('/home/business'))
+        }, () => history.push('/home/business'), errorStyles[1])
 
     }
 
-    function handleChangeStyle(cpfNumber) {
+    function handleChangeStyle(cnpjNum) {
         setClasse("red-border")
 
-        setDocument(cpfNumber)
+        setDocument(cnpjNum)
 
-        if (cpf.isValid(cpfNumber)) {
+        if (cnpj.isValid(cnpjNum)) {
             setClasse("green-border")
         } else {
             setClasse("red-border")
@@ -45,7 +46,7 @@ const SignUpBusiness = props => {
         <main>
             <section className="right-container">
                 <text
-                    onClick={() => history.goBack()}
+                    onClick={() => history.push("/signin/business")}
                     class="quote2"
                 >
                     VOLTAR AO LOGIN
@@ -68,27 +69,30 @@ const SignUpBusiness = props => {
                         <input
                             className={classe}
                             type="text"
-                            placeholder="CPNJ"
+                            placeholder="Cpnj"
                             onChange={e => handleChangeStyle(e.target.value)}
                             value={document}
 
                         />
                         <input
+                            id="email"
                             type="text"
-                            placeholder="Digite seu email"
+                            placeholder="Email"
                             onChange={e => {
                                 setLogin(e.target.value)
                             }}
                             value={email}
-
+                            onClick={errorStyles[0]}
                         />
                         <input
+                            id="password"
                             type="password"
                             placeholder="Senha"
                             onChange={e => {
                                 setPassword(e.target.value)
                             }}
                             value={password}
+                            onClick={errorStyles[0]}
 
                         />
                         <input
