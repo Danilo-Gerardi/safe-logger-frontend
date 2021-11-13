@@ -1,6 +1,6 @@
 import '../styles/home.scss';
 import { useHistory } from 'react-router';
-import signIn from '../service/signIn';
+import userSignIn from '../service/userSignIn';
 import { useState } from 'react';
 import errorStyles from '../styles/errors/errorStyle';
 
@@ -11,7 +11,7 @@ const SignIn = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        signIn({ email, password }, () => history.push('/home'), errorStyles[1]);
+        userSignIn({ email, password }, () => history.push('/home'), errorStyles[1]);
     }
 
     return (

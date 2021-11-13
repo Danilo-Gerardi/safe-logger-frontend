@@ -1,5 +1,5 @@
 import axios from 'axios';
-import signIn from './signIn'
+import userSignIn from './organizationSignIn'
 
 
 const url = 'http://localhost:8080/v1/user';
@@ -8,11 +8,11 @@ const createUser = (user, goHome, error) => {
     axios.post(url, user)
         .then(res => {
             console.log('Conta criada com êxito!')
-            signIn({
+            userSignIn({
                 email: user.email,
                 password: user.password
-            });
-            goHome();
+            }, goHome);
+
 
         })
         .catch(err => {

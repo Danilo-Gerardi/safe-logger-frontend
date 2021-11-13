@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router';
 import moment from 'moment';
 
 import 'moment/locale/pt-br'
 import '../styles/session.scss';
 import { useAuth } from "../providers/auth";
+import admitCollaborator from "../service/admitCollaborator";
+
 
 const HomeBusiness = props => {
 
     const { organization } = useAuth();
-
+    const [cpf, setCpf] = useState('');
     const history = useHistory();
 
     function toUpperCaseInTheFirstLetter(str) {
@@ -19,15 +21,23 @@ const HomeBusiness = props => {
     }
 
     function admitColaborator(e) {
-        e.preventDefault()
-        console.log('Colaborador admitido.')
+        e.preventDefault();
+        admitCollaborator({
+            userDocument: cpf,
+            organizationDocument:
+                JSON.parse(localStorage.getItem('organization')).document
+        }, () => turnMessageGreen(), () => hideMessage())
     }
 
-    setTimeout(() => {
-        if (!localStorage.getItem('organization')) {
-            history.push('/')
-        }
-    }, 500)
+    function turnMessageGreen() {
+        let el = document.getElementById("cpfInput");
+        el.style.color = "green";
+    }
+
+    function hideMessage() {
+        let el = document.getElementById("cpfInput");
+        el.style.color = "";
+    }
 
     const dayOfTheWeek = toUpperCaseInTheFirstLetter(moment().format('dddd'));
 
@@ -44,7 +54,7 @@ const HomeBusiness = props => {
                         onClick={
                             () => {
                                 localStorage.clear();
-                                history.push('/signin');
+                                history.push('/signin/business');
                             }
                         }
                         class="logout"
@@ -68,10 +78,13 @@ const HomeBusiness = props => {
 
                     <div class="container-form">
                         <div class="times">
-
-                            <input type="text" />
+                            <input
+                                type="text"
+                                onChange={e => setCpf(e.target.value)}
+                                value={cpf}
+                            />
                         </div>
-
+                        <div id="cpfInput" className="msg-colaborator-admitted">Coloborador admitido!</div>
                         <div class="buttons">
                             <button
                                 onClick={admitColaborator}

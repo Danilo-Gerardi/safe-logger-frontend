@@ -1,14 +1,14 @@
 import axios from 'axios';
-import signIn from './signIn'
+import organizationSignIn from './organizationSignIn'
 
 
 const url = 'http://localhost:8080/v1/organization';
 
-const createUser = (organization) => {
+const createOrganization = (organization) => {
     axios.post(url, organization)
         .then(res => {
             console.log('Conta criada com êxito!')
-            signIn({
+            organizationSignIn({
                 email: organization.email,
                 password: organization.password
             });
@@ -20,4 +20,4 @@ const createUser = (organization) => {
         })
 }
 
-export default createUser;
+export default createOrganization;

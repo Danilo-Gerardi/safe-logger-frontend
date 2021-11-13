@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router';
 import { useState } from 'react';
-import createUser from '../service/createUser';
+import createOrganization from '../service/createOrganization';
 import '../styles/home.scss';
 import '../styles/login.scss';
 import { cnpj } from 'cpf-cnpj-validator';
@@ -19,7 +19,7 @@ const SignUpBusiness = props => {
 
     function handleCreateUser(e) {
         e.preventDefault()
-        createUser({
+        createOrganization({
             name,
             lastName,
             document,

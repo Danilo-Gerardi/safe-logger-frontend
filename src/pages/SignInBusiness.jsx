@@ -1,6 +1,6 @@
 import '../styles/home.scss';
 import { useHistory } from 'react-router';
-import signIn from '../service/signIn';
+import organizationSignIn from '../service/organizationSignIn';
 import { useState } from 'react';
 import errorStyle from '../styles/errors/errorStyle';
 
@@ -12,7 +12,7 @@ const SignInBusiness = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        signIn({ email, password }, () => history.push('/home/business'), errorStyle[1]);
+        organizationSignIn({ email, password }, () => history.push('/home/business'), errorStyle[1]);
     }
 
     return (

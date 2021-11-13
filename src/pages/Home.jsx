@@ -22,7 +22,7 @@ const Home = props => {
         if (!localStorage.getItem('user')) {
             history.push('/')
         }
-    }, 500)
+    }, 0)
 
     const dayOfTheWeek = toUpperCaseInTheFirstLetter(moment().format('dddd'));
 
