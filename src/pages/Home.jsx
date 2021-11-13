@@ -24,8 +24,6 @@ const Home = props => {
         }
     }, 500)
 
-
-
     const dayOfTheWeek = toUpperCaseInTheFirstLetter(moment().format('dddd'));
 
     return (
@@ -55,7 +53,7 @@ const Home = props => {
                 <form class="session-form">
 
                     <div>
-                        <div class="greeting">Boa tarde, {user.name}!</div>
+                        <div class="greeting">Olá, {user.name}!</div>
                         <div class="date-info">
                             <span>{dayOfTheWeek}, </span>
                             <span>{moment().format('LL')}</span>

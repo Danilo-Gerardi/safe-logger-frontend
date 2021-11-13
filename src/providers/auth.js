@@ -9,6 +9,10 @@ export const AuthProvider = (props) => {
         name: ''
     });
 
+    const [organization, setOrganization] = useState({
+        name: ''
+    });
+
     useEffect(() => {
         const userStorage = localStorage.getItem('user');
         if (userStorage) {
@@ -18,10 +22,19 @@ export const AuthProvider = (props) => {
                 name: ''
             })
         }
+
+        const organizationStorage = localStorage.getItem('organization');
+        if (organizationStorage) {
+            setOrganization(JSON.parse(organizationStorage));
+        } else {
+            setOrganization({
+                name: ''
+            })
+        }
     }, [])
 
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider value={{ user, organization }}>
             {props.children}
         </AuthContext.Provider>
     );

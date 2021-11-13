@@ -6,9 +6,9 @@ import 'moment/locale/pt-br'
 import '../styles/session.scss';
 import { useAuth } from "../providers/auth";
 
-const Home = props => {
+const HomeBusiness = props => {
 
-    const { user } = useAuth();
+    const { organization } = useAuth();
 
     const history = useHistory();
 
@@ -18,8 +18,13 @@ const Home = props => {
         return array.join('');
     }
 
+    function admitColaborator(e) {
+        e.preventDefault()
+        console.log('Colaborador admitido.')
+    }
+
     setTimeout(() => {
-        if (!localStorage.getItem('user')) {
+        if (!localStorage.getItem('organization')) {
             history.push('/')
         }
     }, 500)
@@ -32,7 +37,7 @@ const Home = props => {
             <header class="session-header">
                 <div class="session-header-inner">
                     <span>
-                        Time Track
+                        Business
                     </span>
 
                     <span
@@ -53,35 +58,24 @@ const Home = props => {
                 <form class="session-form">
 
                     <div>
-                        <div class="greeting">Boa tarde, {user.name}!</div>
+                        <div class="greeting">Olá, {organization.name}!</div>
                         <div class="date-info">
                             <span>{dayOfTheWeek}, </span>
                             <span>{moment().format('LL')}</span>
+                            <div>Digite o Cpf do colaborador a ser admitido</div>
                         </div>
                     </div>
 
                     <div class="container-form">
                         <div class="times">
-                            <div class="time">{moment().format('LT')}</div>
-                            <div class="logs">
-                                <span>
-                                    <div>Inicio</div>
-                                    <div class="log-time">08:00</div>
-                                </span>
-                                <span>
-                                    <div>Fim</div>
-                                    <div class="log-time">17:00</div>
-                                </span>
-                            </div>
 
+                            <input type="text" />
                         </div>
 
                         <div class="buttons">
-                            <button>Registrar tempo</button>
                             <button
-                                onClick={() => history.push('/logs')}
-                                class="second-button">Ver minhas horas
-                            </button>
+                                onClick={admitColaborator}
+                            >Admitir Colaborador</button>
                         </div>
                     </div>
 
@@ -96,4 +90,4 @@ const Home = props => {
     )
 }
 
-export default Home;
+export default HomeBusiness;

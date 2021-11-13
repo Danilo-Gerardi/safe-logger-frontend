@@ -2,15 +2,15 @@ import axios from 'axios';
 import signIn from './signIn'
 
 
-const url = 'http://localhost:8080/v1/user';
+const url = 'http://localhost:8080/v1/organization';
 
-const createUser = (user) => {
-    axios.post(url, user)
+const createUser = (organization) => {
+    axios.post(url, organization)
         .then(res => {
             console.log('Conta criada com êxito!')
             signIn({
-                email: user.email,
-                password: user.password
+                email: organization.email,
+                password: organization.password
             });
 
         })

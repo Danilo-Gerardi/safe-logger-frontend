@@ -12,7 +12,11 @@ const SignInBusiness = props => {
     function handleSignIn(e) {
         e.preventDefault();
         signIn({ email, password });
-        history.push('/home/business');
+
+        setTimeout(() => {
+            history.push('/home/business');
+        })
+
     }
 
     return (
