@@ -11,10 +11,22 @@ const SignIn = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        signIn({ email, password });
+        signIn({ email, password }, () => history.push('/home'), error);
+    }
 
-        history.push('/home');
+    function error() {
+        document.getElementById("email").style.borderColor = "yellow"
+        document.getElementById("password").style.borderColor = "yellow"
+        document.getElementById("email").placeholder = "Email incorreto"
+        document.getElementById("password").placeholder = "Senha incorreta"
 
+    }
+
+    function removeYellowBorder() {
+        document.getElementById("email").style.borderColor = ""
+        document.getElementById("password").style.borderColor = ""
+        document.getElementById("email").placeholder = "Email"
+        document.getElementById("password").placeholder = "Senha"
     }
 
     return (
@@ -25,17 +37,21 @@ const SignIn = props => {
                     <h2>Bem vindo!</h2>
                     <form onSubmit={handleSignIn}>
                         <input
+                            id="email"
                             type="text"
-                            placeholder="Login"
+                            placeholder="Email"
                             onChange={e => setEmail(e.target.value)}
                             value={email}
-
+                            onClick={removeYellowBorder}
                         />
                         <input
+                            id="password"
                             type="password"
                             placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
                             value={password}
+                            onClick={removeYellowBorder}
+
 
                         />
                         <button>

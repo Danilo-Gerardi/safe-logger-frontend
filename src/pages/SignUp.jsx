@@ -23,19 +23,14 @@ const SignUp = props => {
             document,
             email,
             password
-        })
-        history.push('/home');
+        }, () => history.push('/home'))
+
     }
-
-
-
-    let regex = "([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})"
-    let pattern = "$1.$2.$3-$4"
 
     function handleChangeStyle(cpfNumber) {
         setClasse("red-border")
 
-        setDocument(cpfNumber.replaceAll(regex, pattern))
+        setDocument(cpfNumber)
 
         if (cpf.isValid(cpfNumber)) {
             setClasse("green-border")
