@@ -24,8 +24,6 @@ const Home = props => {
         }
     }, 500)
 
-
-
     const dayOfTheWeek = toUpperCaseInTheFirstLetter(moment().format('dddd'));
 
     return (
@@ -34,7 +32,7 @@ const Home = props => {
             <header class="session-header">
                 <div class="session-header-inner">
                     <span>
-                        Safe Logger
+                        Time Track
                     </span>
 
                     <span

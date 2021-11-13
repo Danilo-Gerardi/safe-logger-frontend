@@ -2,11 +2,9 @@ import '../styles/home.scss';
 import { useHistory } from 'react-router';
 import signIn from '../service/signIn';
 import { useState } from 'react';
-import { useAuth } from '../providers/auth'
 
 
-const Login = props => {
-
+const SignIn = props => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
@@ -15,11 +13,8 @@ const Login = props => {
         e.preventDefault();
         signIn({ email, password });
 
-        // if (localStorage.getItem('jwt') /*&& localStorage.getItem('type') == 'user'*/) {
-        //     history.push('/home');
-        // } //else if(localStorage.getItem('jwt') && localStorage.getItem('type') == 'organization') {
-        //history.push('/home/organization');
-        //}
+        history.push('/home');
+
     }
 
     return (
@@ -30,7 +25,6 @@ const Login = props => {
                     <h2>Bem vindo!</h2>
                     <form onSubmit={handleSignIn}>
                         <input
-                            id="login"
                             type="text"
                             placeholder="Login"
                             onChange={e => setEmail(e.target.value)}
@@ -38,7 +32,6 @@ const Login = props => {
 
                         />
                         <input
-                            id="login"
                             type="password"
                             placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
@@ -47,6 +40,9 @@ const Login = props => {
                         />
                         <button>
                             Entrar
+                        </button>
+                        <button onClick={() => history.push('/signin/business')}>
+                            Entrar como Business
                         </button>
                         <div class="create-account">
                             <span>Não tem conta? </span>
@@ -61,7 +57,7 @@ const Login = props => {
             <section class="right-container">
                 <div class="time-track">
                     <text >
-                        Time Track
+                        Safe Logger
                     </text>
                     <text class="quote">
                         Registre seu tempo.
@@ -74,4 +70,4 @@ const Login = props => {
 }
 
 
-export default Login;
+export default SignIn;

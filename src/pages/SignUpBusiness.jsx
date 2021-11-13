@@ -5,10 +5,11 @@ import '../styles/home.scss';
 import '../styles/login.scss';
 import { cpf } from 'cpf-cnpj-validator';
 
-const SignUp = props => {
+
+const SignUpBusiness = props => {
     const history = useHistory();
     const [name, setName] = useState('');
-    const [lastName, setLastname] = useState('');
+    const [lastName] = useState('');
     const [document, setDocument] = useState('');
     const [email, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -24,7 +25,7 @@ const SignUp = props => {
             email,
             password
         })
-        history.push('/home');
+        history.push('/home/business');
     }
 
 
@@ -49,7 +50,7 @@ const SignUp = props => {
         <main>
             <section className="right-container">
                 <text
-                    onClick={() => history.push('/signin')}
+                    onClick={() => history.goBack()}
                     class="quote2"
                 >
                     VOLTAR AO LOGIN
@@ -59,7 +60,7 @@ const SignUp = props => {
 
                 <div className="login-form">
 
-                    <h2>Crie sua conta</h2>
+                    <h2>Conta Business</h2>
                     <form>
                         <input
                             type="text"
@@ -70,18 +71,9 @@ const SignUp = props => {
                             value={name}
                         />
                         <input
-                            type="text"
-                            placeholder="Sobrenome"
-                            onChange={e => {
-                                setLastname(e.target.value)
-                            }}
-                            value={lastName}
-
-                        />
-                        <input
                             className={classe}
                             type="text"
-                            placeholder="CPF"
+                            placeholder="CPNJ"
                             onChange={e => handleChangeStyle(e.target.value)}
                             value={document}
 
@@ -114,10 +106,10 @@ const SignUp = props => {
                         </button>
                         <button onClick={(e) => {
                             e.preventDefault();
-                            history.push('/signup/business')
+                            history.push('/signup');
 
                         }}>
-                            Criar Conta Business
+                            Criar Conta Usuário
                         </button>
                     </form>
                 </div>
@@ -127,4 +119,4 @@ const SignUp = props => {
     )
 }
 
-export default SignUp;
+export default SignUpBusiness;
