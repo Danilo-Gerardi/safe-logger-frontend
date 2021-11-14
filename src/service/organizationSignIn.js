@@ -5,17 +5,15 @@ import getOrganizationInfo from './getOrganizationInfo';
 const url = 'http://localhost:8080/authenticate';
 
 const organizationSignIn = (data, goHome, error) => {
-
     axios.post(url, data)
         .then(res => {
-            //console.log('Success Authenticating.')
-            // localStorage.setItem('jwt', JSON.parse(res.data))
-            // console.log(localStorage.getItem('jwt'))
-            // console.log(res.data.token);
-            getOrganizationInfo(res.data.token, goHome);
+            console.log('Organization Success Authenticating.')
+            localStorage.setItem('jwt', JSON.stringify(res.data))
+            getOrganizationInfo(res.data.token);
         })
-        .then(() => console.log(localStorage.getItem('jwt')))
-
+        .then(() => {
+            setTimeout(() => goHome(), 300)
+        })
         .catch(res => {
             console.log('Email de organização ou senha incorretos.')
             error()

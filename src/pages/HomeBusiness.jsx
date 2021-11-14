@@ -68,7 +68,9 @@ const HomeBusiness = props => {
                 <form class="session-form">
 
                     <div>
-                        <div class="greeting">Olá, {organization.name}!</div>
+                        <div class="greeting">Olá, {
+                            JSON.parse(localStorage.getItem('organization')).name
+                        }!</div>
                         <div class="date-info">
                             <span>{dayOfTheWeek}, </span>
                             <span>{moment().format('LL')}</span>

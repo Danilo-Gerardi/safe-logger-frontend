@@ -8,8 +8,6 @@ const admitCollaborator = (documents, successMessage, errorMessage) => {
 
     const headers = { 'Authorization': 'Bearer ' + token }
 
-    console.log(documents)
-
     axios.post(
         url, documents, { headers }
     )

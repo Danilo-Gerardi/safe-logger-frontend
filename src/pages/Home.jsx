@@ -1,14 +1,15 @@
 import React from "react";
 import { useHistory } from 'react-router';
 import moment from 'moment';
-
+import getTodayLogs from "../service/getTodayLogs";
 import 'moment/locale/pt-br'
 import '../styles/session.scss';
 import { useAuth } from "../providers/auth";
 
 const Home = props => {
-
     const { user } = useAuth();
+    console.log("passou aqui")
+    console.log(user.name)
 
     const history = useHistory();
 
@@ -53,7 +54,9 @@ const Home = props => {
                 <form class="session-form">
 
                     <div>
-                        <div class="greeting">Olá, {user.name}!</div>
+                        <div class="greeting">Olá, {
+                            JSON.parse(localStorage.getItem('user')).name
+                        }!</div>
                         <div class="date-info">
                             <span>{dayOfTheWeek}, </span>
                             <span>{moment().format('LL')}</span>

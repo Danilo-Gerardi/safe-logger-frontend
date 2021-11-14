@@ -9,10 +9,7 @@ const getUserInfo = async (token) => {
         headers: { 'Authorization': "Bearer " + token }
     })
         .then(res => {
-            console.log(res.data)
             localStorage.setItem('user', JSON.stringify(res.data))
-
-
         })
         .catch(err => {
             console.log('Erro ao obter dados do usuário.')

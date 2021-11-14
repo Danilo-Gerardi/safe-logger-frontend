@@ -24,7 +24,8 @@ const SignUpBusiness = props => {
             lastName,
             document,
             email,
-            password
+            password,
+            loggingAreas: []
         }, () => history.push('/home/business'), errorStyles[1])
 
     }
