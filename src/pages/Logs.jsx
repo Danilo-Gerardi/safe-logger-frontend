@@ -1,13 +1,29 @@
+import React, { useState, useEffect } from "react";
 import '../styles/session.scss';
 import '../styles/logs.scss';
+import getAllUserLogs from '../service/getAllUserLogs';
+import Log from '../components/LogsComponent';
 import { useHistory } from 'react-router';
 
-
-
 const Logs = props => {
-
     const history = useHistory();
+    const [logList, setLogList] = useState([]) 
 
+    useEffect(() => {
+        getAllUserLogs((logs) => {
+            console.log(logs)
+            setLogList(logs)
+        })
+    }, []);
+
+    function renderLogs() {
+        return (
+            <div>
+              {logList.map((value) => <Log data={"asdasd"} start={value.start} finish={value.finish}/>)}
+            </div>
+          )
+    }
+    
     return (
         <div class="entire-view">
 
@@ -41,6 +57,7 @@ const Logs = props => {
                 <div>17:00</div>
             </div>
 
+            {renderLogs()}
 
             <footer class="session-footer"></footer>
 
