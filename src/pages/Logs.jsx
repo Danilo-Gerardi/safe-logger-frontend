@@ -1,13 +1,31 @@
+import React, { useState, useEffect } from "react";
 import '../styles/session.scss';
 import '../styles/logs.scss';
+import getAllUserLogs from '../service/getAllUserLogs';
+import Log from '../components/LogsComponent';
 import { useHistory } from 'react-router';
-
-
+import getDate from '../utils/GetDate';
+import getTime from '../utils/GetTime';
 
 const Logs = props => {
-
     const history = useHistory();
+    const [logList, setLogList] = useState([]) 
 
+    useEffect(() => {
+        getAllUserLogs((logs) => {
+            console.log(logs)
+            setLogList(logs)
+        })
+    }, []);
+
+    function renderLogs() {
+        return (
+            <div>
+              {logList.map((value) => <Log data={getDate(value.start)} start={getTime(value.start)} finish={getTime(value.finish)}/>)}
+            </div>
+          )
+    }
+    
     return (
         <div class="entire-view">
 
@@ -35,12 +53,7 @@ const Logs = props => {
                 <div>Fim</div>
             </section>
 
-            <div class="log-table">
-                <div>09/09/2022</div>
-                <div>08:00</div>
-                <div>17:00</div>
-            </div>
-
+            {renderLogs()}
 
             <footer class="session-footer"></footer>
 
