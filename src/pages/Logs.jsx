@@ -4,6 +4,8 @@ import '../styles/logs.scss';
 import getAllUserLogs from '../service/getAllUserLogs';
 import Log from '../components/LogsComponent';
 import { useHistory } from 'react-router';
+import getDate from '../utils/GetDate';
+import getTime from '../utils/GetTime';
 
 const Logs = props => {
     const history = useHistory();
@@ -19,7 +21,7 @@ const Logs = props => {
     function renderLogs() {
         return (
             <div>
-              {logList.map((value) => <Log data={"asdasd"} start={value.start} finish={value.finish}/>)}
+              {logList.map((value) => <Log data={getDate(value.start)} start={getTime(value.start)} finish={getTime(value.finish)}/>)}
             </div>
           )
     }
@@ -50,12 +52,6 @@ const Logs = props => {
                 <div>Inicio</div>
                 <div>Fim</div>
             </section>
-
-            <div class="log-table">
-                <div>09/09/2022</div>
-                <div>08:00</div>
-                <div>17:00</div>
-            </div>
 
             {renderLogs()}
 
