@@ -1,15 +1,18 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8080/v1/organization/collaborator';
 
-const admitCollaborator = (documents, successMessage, errorMessage) => {
+const admitCollaborator = (document, successMessage, errorMessage) => {
 
-    let token = localStorage.getItem('jwt');
+    const userDocument = document.userDocument;
+
+    const url = `http://localhost:8080/v1/organization/collaborator/${userDocument}`;
+
+    let token = JSON.parse(localStorage.getItem('jwt')).token;
 
     const headers = { 'Authorization': 'Bearer ' + token }
 
     axios.post(
-        url, documents, { headers }
+        url, null, { headers: headers }
     )
         .then((res) => {
             console.log('Colaborador admitido com êxito!');
@@ -18,7 +21,8 @@ const admitCollaborator = (documents, successMessage, errorMessage) => {
         })
         .catch((err) => {
             console.log('Erro ao admitir colaborador');
-            errorMessage();
+            console.error(err.response.data.message);
+            errorMessage(err.response.data.message);
 
         })
 }

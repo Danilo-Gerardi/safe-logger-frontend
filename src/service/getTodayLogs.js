@@ -4,6 +4,8 @@ const getTodayLogs = (organizationDocument, resolve) => {
 
     const url = `http://localhost:8080/v1/log/${organizationDocument}/today`;
 
+    // const organizationDocument
+
     const token = JSON.parse(localStorage.getItem('jwt')).token;
 
     axios.get(url, {

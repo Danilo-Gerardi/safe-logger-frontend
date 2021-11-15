@@ -19,6 +19,13 @@ const Home = props => {
         return array.join('');
     }
 
+
+    function getTodayLogs(e) {
+        e.preventDefault()
+        getTodayLogs()
+    }
+
+
     setTimeout(() => {
         if (!localStorage.getItem('user')) {
             history.push('/')
