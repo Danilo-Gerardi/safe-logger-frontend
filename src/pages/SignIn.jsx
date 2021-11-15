@@ -11,7 +11,13 @@ const SignIn = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        userSignIn({ email, password }, () => history.push('/home'), errorStyles[1]);
+        userSignIn({ email, password }, () => {
+            if (JSON.parse(localStorage.getItem('user')).organizations[0]) {
+                history.push('/home')
+            } else {
+                history.push('/not-a-collab-yet')
+            }
+        }, errorStyles[1]);
     }
 
     return (

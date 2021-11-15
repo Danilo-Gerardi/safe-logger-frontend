@@ -10,7 +10,6 @@ const userSignIn = (data, goHome, error) => {
             console.log('Success Authenticating.')
             localStorage.setItem('jwt', JSON.stringify(res.data))
             getUserInfo(res.data.token);
-
         })
         .then(() => {
             setTimeout(() => goHome(), 300)
