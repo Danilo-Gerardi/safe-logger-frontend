@@ -5,6 +5,7 @@ import '../styles/home.scss';
 import '../styles/login.scss';
 import { cnpj } from 'cpf-cnpj-validator';
 import errorStyles from '../styles/errors/errorStyle';
+import getCoordinates from '../service/geolocation/getCoordinates';
 
 
 const SignUpBusiness = props => {
@@ -19,15 +20,30 @@ const SignUpBusiness = props => {
 
     function handleCreateUser(e) {
         e.preventDefault()
-        createOrganization({
-            name,
-            lastName,
-            document,
-            email,
-            password,
-            loggingAreas: []
-        }, () => history.push('/home/business'), errorStyles[1])
 
+        let lat = 0;
+        let long = 0;
+
+        getCoordinates((latitude, longitude) => {
+            lat = latitude;
+            long = longitude;
+
+            const firstLogginArea = {
+                name: "Área central",
+                latitude: lat,
+                longitude: long,
+                radius: 30
+            }
+
+            createOrganization({
+                name,
+                lastName,
+                document,
+                email,
+                password,
+                loggingAreas: [firstLogginArea]
+            }, () => history.push('/home/business'), errorStyles[1])
+        })
     }
 
     function handleChangeStyle(cnpjNum) {
