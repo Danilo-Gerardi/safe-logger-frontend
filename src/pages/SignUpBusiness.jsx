@@ -28,11 +28,14 @@ const SignUpBusiness = props => {
             lat = latitude;
             long = longitude;
 
+            console.log(lat)
+            console.log(long)
+
             const firstLogginArea = {
                 name: "Área central",
                 latitude: lat,
                 longitude: long,
-                radius: 30
+                radius: 10
             }
 
             createOrganization({

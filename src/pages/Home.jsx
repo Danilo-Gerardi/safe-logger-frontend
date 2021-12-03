@@ -47,10 +47,10 @@ const Home = _props => {
             token,
             () => {
                 findTodayLogs(organizationDocument, token)
-                console.log('DEU BOM')
+                console.log('Sucesso ao registrar tempo')
             },
             () => {
-                console.log('DEU RUIM')
+                console.log('Falha ao registrar tempo')
             });
     }
 

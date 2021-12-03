@@ -44,7 +44,7 @@ const SignInBusiness = props => {
                             Entrar
                         </button>
                         <button onClick={() => history.push('/signin')}>
-                            Entrar como usuário
+                            Sou Colaborador
                         </button>
                         <div class="create-account">
                             <span>Não tem conta? </span>

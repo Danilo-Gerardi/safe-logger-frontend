@@ -49,7 +49,7 @@ const SignIn = props => {
                             Entrar
                         </button>
                         <button onClick={() => history.push('/signin/business')}>
-                            Entrar como Business
+                            Sou Business
                         </button>
                         <div class="create-account">
                             <span>Não tem conta? </span>
