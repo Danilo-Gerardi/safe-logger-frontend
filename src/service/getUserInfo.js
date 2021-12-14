@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const url = 'http://localhost:8080/v1/user';
+const url = process.env.REACT_APP_BACK_END_API + '/v1/user';
 
 
 const getUserInfo = async (token) => {

@@ -4,7 +4,7 @@ const getAllUserLogs = (callBack) => {
 
     const organizationDocument = JSON.parse(localStorage.getItem('user'))?.organizations[0]?.document;
 
-    const url = `http://localhost:8080/v1/log/` + organizationDocument;
+    const url = process.env.REACT_APP_BACK_END_API + '/v1/log/' + organizationDocument;
 
     const token = JSON.parse(localStorage.getItem('jwt')).token;
 

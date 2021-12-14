@@ -2,7 +2,7 @@ import axios from 'axios';
 import organizationSignIn from './organizationSignIn'
 
 
-const url = 'http://localhost:8080/v1/organization';
+const url = process.env.REACT_APP_BACK_END_API + '/v1/organization';
 
 const createOrganization = (organization, goHome, error) => {
     axios.post(url, organization)

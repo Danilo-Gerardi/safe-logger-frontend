@@ -2,7 +2,7 @@ import axios from 'axios';
 import userSignIn from './userSignIn'
 
 
-const url = 'http://localhost:8080/v1/user';
+const url = process.env.REACT_APP_BACK_END_API + '/v1/user';
 
 const createUser = (user, goHome, error) => {
     axios.post(url, user)

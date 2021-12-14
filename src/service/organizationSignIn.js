@@ -2,7 +2,7 @@ import axios from 'axios';
 import getOrganizationInfo from './getOrganizationInfo';
 
 
-const url = 'http://localhost:8080/authenticate';
+const url = process.env.REACT_APP_BACK_END_API + '/authenticate';
 
 const organizationSignIn = (data, goHome, error) => {
     axios.post(url, data)

@@ -5,7 +5,7 @@ const admitCollaborator = (document, successMessage, errorMessage) => {
 
     const userDocument = document.userDocument;
 
-    const url = `http://localhost:8080/v1/organization/collaborator/${userDocument}`;
+    const url = process.env.REACT_APP_BACK_END_API + '/v1/organization/collaborator/${userDocument}';
 
     let token = JSON.parse(localStorage.getItem('jwt')).token;
 

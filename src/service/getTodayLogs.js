@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getTodayLogs = (organizationDocument, resolve) => {
 
-    const url = `http://localhost:8080/v1/log/${organizationDocument}/today`;
+    const url = process.env.REACT_APP_BACK_END_API + '/v1/log/${organizationDocument}/today';
 
     // const organizationDocument
 
