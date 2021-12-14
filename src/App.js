@@ -4,6 +4,7 @@ import SignInBusiness from './pages/SignInBusiness';
 import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
 import Home from './pages/Home';
+import NotACollab from './pages/NotACollab';
 import HomeBusiness from './pages/HomeBusiness';
 import Logs from './pages/Logs';
 import { AuthProvider } from './providers/auth';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signup" exact component={SignUp} />
             <Route path="/home" exact component={Home} />
             <Route path="/signin/business" component={SignInBusiness} />
+            <Route path="/not-a-collab-yet" component={NotACollab} />
             <Route path="/signup/business" component={SignUpBusiness} />
             <Route path="/home/business" component={HomeBusiness} />
             <Route path="/logs" component={Logs} />

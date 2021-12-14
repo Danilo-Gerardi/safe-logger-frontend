@@ -25,7 +25,13 @@ const SignUp = props => {
             document,
             email,
             password
-        }, () => history.push('/home'), errorStyles[1])
+        }, () => {
+            if (JSON.parse(localStorage.getItem('user')).organizations[0]) {
+                history.push('/home')
+            } else {
+                history.push('/not-a-collab-yet')
+            }
+        }, errorStyles[1])
 
     }
 

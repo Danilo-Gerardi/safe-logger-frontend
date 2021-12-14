@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router';
 import moment from 'moment';
 import getTodayLogs from "../service/getTodayLogs";
 import 'moment/locale/pt-br'
 import '../styles/session.scss';
 import { useAuth } from "../providers/auth";
+import logTime from "../service/logTime";
+import getTime from "../utils/GetTime";
 
-const Home = props => {
-    const { user } = useAuth();
-    console.log("passou aqui")
-    console.log(user.name)
+
+const Home = _props => {
 
     const history = useHistory();
+
+    const [start, setStart] = useState("--:--");
+    const [finish, setFinish] = useState("--:--");
+
+    const organizationDocument = JSON.parse(localStorage.getItem('user')).organizations[0].document;
+    const token = JSON.parse(localStorage.getItem('jwt')).token;
 
     function toUpperCaseInTheFirstLetter(str) {
         let array = str.split('');
@@ -20,10 +26,35 @@ const Home = props => {
     }
 
 
-    function getTodayLogs(e) {
-        e.preventDefault()
-        getTodayLogs()
+    function findTodayLogs(_organizationDocument, _token) {
+
+        getTodayLogs((data) => {
+            console.log(data)
+            data.start ? setStart(getTime(data.start)) : setStart("--:--");
+            data.finish ? setFinish(getTime(data.finish)) : setFinish("--:--");
+        }, _organizationDocument, _token)
     }
+
+    useEffect(() => {
+        findTodayLogs(organizationDocument, token)
+    }, []);
+
+
+    function log(e) {
+        e.preventDefault();
+        logTime(
+            organizationDocument,
+            token,
+            () => {
+                findTodayLogs(organizationDocument, token)
+                console.log('Sucesso ao registrar tempo')
+            },
+            () => {
+                console.log('Falha ao registrar tempo')
+            });
+    }
+
+
 
 
     setTimeout(() => {
@@ -76,18 +107,20 @@ const Home = props => {
                             <div class="logs">
                                 <span>
                                     <div>Inicio</div>
-                                    <div class="log-time">08:00</div>
+                                    <div id="start" class="log-time">{start}</div>
                                 </span>
                                 <span>
                                     <div>Fim</div>
-                                    <div class="log-time">17:00</div>
+                                    <div id="end" class="log-time">{finish}</div>
                                 </span>
                             </div>
 
                         </div>
 
                         <div class="buttons">
-                            <button>Registrar tempo</button>
+                            <button
+                                onClick={log}
+                            >Registrar tempo</button>
                             <button
                                 onClick={() => history.push('/logs')}
                                 class="second-button">Ver minhas horas
