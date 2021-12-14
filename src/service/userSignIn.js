@@ -2,9 +2,10 @@ import axios from 'axios';
 import getUserInfo from './getUserInfo';
 
 
-const url = 'http://localhost:8080/authenticate';
+const url = process.env.REACT_APP_BACK_END_API + '/authenticate';
 
 const userSignIn = (data, goHome, error) => {
+    console.log(process.env.REACT_APP_BACK_END_API)
     axios.post(url, data)
         .then(res => {
             console.log('Success Authenticating.')
