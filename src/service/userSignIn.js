@@ -13,7 +13,7 @@ const userSignIn = (data, goHome, error) => {
             getUserInfo(res.data.token);
         })
         .then(() => {
-            setTimeout(() => goHome(), 300)
+            setTimeout(() => goHome(), 600)
         })
         .catch(res => {
             console.log('Usuário ou senha incorretos.')

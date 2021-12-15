@@ -12,7 +12,7 @@ const organizationSignIn = (data, goHome, error) => {
             getOrganizationInfo(res.data.token);
         })
         .then(() => {
-            setTimeout(() => goHome(), 300)
+            setTimeout(() => goHome(), 600)
         })
         .catch(res => {
             console.log('Email de organização ou senha incorretos.')
