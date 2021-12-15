@@ -2,8 +2,9 @@ import '../styles/home.scss';
 import { useHistory } from 'react-router';
 import organizationSignIn from '../service/organizationSignIn';
 import { useState } from 'react';
-import errorStyle from '../styles/errors/errorStyle';
-
+import errorStyles from '../styles/errors/errorStyle';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const SignInBusiness = props => {
     const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const SignInBusiness = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        organizationSignIn({ email, password }, () => history.push('/home/business'), errorStyle[1]);
+        organizationSignIn({ email, password }, () => history.push('/home/business'), errorStyles[1]);
     }
 
     return (
@@ -20,32 +21,34 @@ const SignInBusiness = props => {
             <section className="login-container">
                 <div className="login-form">
 
-                    <h2>Conta Business</h2>
+                    <h1>Conta Business</h1>
                     <form onSubmit={handleSignIn}>
-                        <input
+                        <TextField 
+                            className="input"
                             id="email"
                             type="text"
-                            placeholder="Login"
                             onChange={e => setEmail(e.target.value)}
                             value={email}
-                            onClick={errorStyle[0]}
-
+                            onClick={errorStyles[0]}
+                            label="Email" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="password"
                             type="password"
-                            placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
                             value={password}
-                            onClick={errorStyle[0]}
-
+                            onClick={errorStyles[0]}
+                            label="Senha" 
+                            variant="outlined" 
                         />
-                        <button>
+                        <Button className='button' variant="contained" type='submit'>
                             Entrar
-                        </button>
-                        <button onClick={() => history.push('/signin')}>
-                            Sou Colaborador
-                        </button>
+                        </Button >
+                        <Button className='button' variant="contained" onClick={() => history.push('/signin')}>
+                            Sou colaborador
+                        </Button>
                         <div class="create-account">
                             <span>Não tem conta? </span>
                             <span class="click-here"
@@ -58,12 +61,13 @@ const SignInBusiness = props => {
             </section>
             <section class="right-container">
                 <div class="time-track">
-                    <text >
+                    <text className="title">
                         Safe Logger
                     </text>
                     <text class="quote">
                         Business account
                     </text>
+                    <img src="google_analytics.svg" alt="" srcset="" width={500}/>
                 </div>
 
             </section>

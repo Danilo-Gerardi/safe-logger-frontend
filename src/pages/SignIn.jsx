@@ -3,6 +3,8 @@ import { useHistory } from 'react-router';
 import userSignIn from '../service/userSignIn';
 import { useState } from 'react';
 import errorStyles from '../styles/errors/errorStyle';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const SignIn = props => {
     const [email, setEmail] = useState('');
@@ -25,32 +27,34 @@ const SignIn = props => {
             <section className="login-container">
                 <div className="login-form">
 
-                    <h2>Bem vindo!</h2>
+                    <h1>Bem vindo!</h1>
                     <form onSubmit={handleSignIn}>
-                        <input
+                        <TextField 
+                            className="input"
                             id="email"
                             type="text"
-                            placeholder="Email"
                             onChange={e => setEmail(e.target.value)}
                             value={email}
                             onClick={errorStyles[0]}
+                            label="Email" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="password"
                             type="password"
-                            placeholder="Senha"
                             onChange={e => setPassword(e.target.value)}
                             value={password}
                             onClick={errorStyles[0]}
-
-
+                            label="Senha" 
+                            variant="outlined" 
                         />
-                        <button>
+                        <Button className='button' variant="contained" type='submit'>
                             Entrar
-                        </button>
-                        <button onClick={() => history.push('/signin/business')}>
+                        </Button >
+                        <Button className='button' variant="contained" onClick={() => history.push('/signin/business')}>
                             Sou Business
-                        </button>
+                        </Button>
                         <div class="create-account">
                             <span>Não tem conta? </span>
                             <span class="click-here"
@@ -61,20 +65,21 @@ const SignIn = props => {
                 </div>
 
             </section>
+
             <section class="right-container">
                 <div class="time-track">
-                    <text >
+                    <text className="title">
                         Safe Logger
                     </text>
                     <text class="quote">
-                        Registre seu tempo.
+                        Registre seu tempo com segurança e de forma simples!
                     </text>
+                    <img src="mobile_posts.svg" alt="" srcset="" width={400}/>
                 </div>
-
             </section>
+            
         </main>
     )
 }
-
 
 export default SignIn;

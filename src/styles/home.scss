@@ -1,27 +1,29 @@
-$blue-color: rgb(53, 53, 228);
-
+$gray-color: #f2f4f8;
 
 main {
     display: flex;
-    
 }
 
 .login-container {
     width: 50%;
     height: 100vh;
     display: flex;
-    background-color: rgb(243, 242, 229);;
+    background-color: rgb(255, 255, 255); 
 }
 
 .right-container {
-    background-color: $blue-color;
+    background-color: $gray-color;
     width: 50%;
     display: flex;
     
 }
 
+img {
+    margin: 80px;
+}
+
 .time-track {
-    color: white;
+    color: #1976d2;
     font-size: 1.5cm;
     font-weight: 800;
     text-align: center;
@@ -29,76 +31,36 @@ main {
     display: block;
 }
 
+.title {
+    padding-bottom: 40px;
+}
+
 .quote {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 0.6cm;
     display: block;
     font-weight: 400;
-    
 }
 
+.input {
+    margin-bottom: 10px !important;
+    width: 350px;
+}
 
-input {
-    width: 250px;
+.button {
+    margin-bottom: 10px !important;
+    width: 350px;
     height: 40px;
-    border-radius: 8px;
-    border: 1px solid #a8a8b3;
-    border-color: #6d6d70;
-    display: block;
-    margin: auto;
-    margin-top: 10px;    
- }
-
-.red-border{
-    border-color: red;
-    color: red;
-}
-
-.green-border{
-    border-color: #358018;
-    color: #358018;
-}
-
-input[type=text], input[type=password], select {
-    padding-left: 20px;
-    font-size: 2ch;
-    
-}
-
-
-
-input:focus {
-    outline: none;
-}
-
-
-button {
-    display: block;
-    margin: auto;
-    cursor: pointer;
-    width: 276px;
-    margin-top: 10px;
-    height: 40px;
-    background-color: rgb(53, 53, 228);
-    color:white;
-    font-weight: 300;
-    font-size: 2.0ch;
-    border-radius: 8px;
-    border: none; 
-
-}
-
-button:hover {
-    background-color: magenta;
 }
 
 .login-form {
-   width: 300px;
+   width: 350px;
    margin: auto; 
 }
 
 
-h2 {
+h1 {
+    font-size: 28px;
     text-align: center;
     margin-top: 0px;
 }

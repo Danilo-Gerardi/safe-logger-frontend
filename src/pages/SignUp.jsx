@@ -5,7 +5,8 @@ import '../styles/home.scss';
 import '../styles/login.scss';
 import { cpf } from 'cpf-cnpj-validator';
 import errorStyles from '../styles/errors/errorStyle';
-
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const SignUp = props => {
     const history = useHistory();
@@ -15,7 +16,6 @@ const SignUp = props => {
     const [email, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [classe, setClasse] = useState('')
-
 
     function handleCreateUser(e) {
         e.preventDefault()
@@ -47,7 +47,6 @@ const SignUp = props => {
         }
     }
 
-
     return (
         <main>
             <section className="right-container">
@@ -58,74 +57,77 @@ const SignUp = props => {
                     VOLTAR AO LOGIN
                 </text>
             </section>
+            
             <section className="login-container">
 
                 <div className="login-form">
 
                     <h2>Crie sua conta</h2>
                     <form>
-                        <input
+                        <TextField 
+                            className="input"
                             type="text"
-                            placeholder="Nome"
                             onChange={e => {
                                 setName(e.target.value)
                             }}
                             value={name}
+                            label="Nome" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             type="text"
-                            placeholder="Sobrenome"
                             onChange={e => {
                                 setLastname(e.target.value)
                             }}
                             value={lastName}
-
+                            label="Sobrenome" 
+                            variant="outlined" 
                         />
-                        <input
-                            className={classe}
+                        <TextField 
+                            className="input"
                             type="text"
-                            placeholder="Cpf"
                             onChange={e => handleChangeStyle(e.target.value)}
                             value={document}
-
+                            label="Cpf" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="email"
                             type="text"
-                            placeholder="Email"
                             onChange={e => {
                                 setLogin(e.target.value)
                             }}
                             value={email}
                             onClick={errorStyles[0]}
-
+                            label="Email" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="password"
                             type="password"
-                            placeholder="Senha"
                             onChange={e => {
                                 setPassword(e.target.value)
                             }}
                             value={password}
                             onClick={errorStyles[0]}
-
+                            label="Senha" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             type="password"
-                            placeholder="Confirme a senha"
-
+                            label="Confirme a senha" 
+                            variant="outlined" 
                         />
-                        <button onClick={handleCreateUser}>
+                        <Button className='button' variant="contained" type='submit'>
                             Criar
-                        </button>
-                        <button onClick={(e) => {
-                            e.preventDefault();
-                            history.push('/signup/business')
-
-                        }}>
+                        </Button >
+                        <Button className='button' variant="contained" onClick={() => history.push('/signup/business')}>
                             Criar Conta Business
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </section>
