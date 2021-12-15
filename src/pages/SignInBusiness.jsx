@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import organizationSignIn from '../service/organizationSignIn';
 import { useState } from 'react';
 import errorStyles from '../styles/errors/errorStyle';
+import Carousel from 'react-material-ui-carousel'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -67,7 +68,21 @@ const SignInBusiness = props => {
                     <text class="quote">
                         Business account
                     </text>
-                    <img src="google_analytics.svg" alt="" srcset="" width={500}/>
+                    <Carousel className='carousel' autoPlay="true" animation='slide' duration="1000" interval="6000">
+                            <div>
+                                <text class="quote">
+                                    Registre seu tempo com segurança e de forma simples!
+                                </text>
+                                <img src="google_analytics.svg" alt="" srcset="" width={500}/>
+                            </div>
+
+                            <div>
+                                <text class="quote">
+                                    Controle seu tempo com poucos cliks!
+                                </text>
+                                <img src="time_management.svg" alt="" srcset="" width={400}/>
+                            </div>
+                    </Carousel>
                 </div>
 
             </section>

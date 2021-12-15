@@ -81,8 +81,8 @@ const NotACollab = props => {
             <div class="not-a-collab-yet-msg">
                 <h1 >Você ainda não pode logar horas</h1>
                 <h2>É preciso que uma empresa te indique como seu colaborador</h2>
+                <img src="safe.svg" alt="" srcset="" width={400}/>
             </div>
-
         </div>
 
     )

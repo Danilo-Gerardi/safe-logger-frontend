@@ -15,7 +15,6 @@ main {
     background-color: $gray-color;
     width: 50%;
     display: flex;
-    
 }
 
 img {
@@ -28,11 +27,12 @@ img {
     font-weight: 800;
     text-align: center;
     margin: auto;
-    display: block;
+    width: 100%;
+    justify-content: center;
 }
 
 .title {
-    padding-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .quote {
@@ -76,4 +76,10 @@ h1 {
     color: magenta;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.carousel {
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
 }

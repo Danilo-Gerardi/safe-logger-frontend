@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import userSignIn from '../service/userSignIn';
 import { useState } from 'react';
 import errorStyles from '../styles/errors/errorStyle';
+import Carousel from 'react-material-ui-carousel'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -68,13 +69,26 @@ const SignIn = props => {
 
             <section class="right-container">
                 <div class="time-track">
-                    <text className="title">
+
+                    <text class="title">
                         Safe Logger
                     </text>
-                    <text class="quote">
-                        Registre seu tempo com segurança e de forma simples!
-                    </text>
-                    <img src="mobile_posts.svg" alt="" srcset="" width={400}/>
+
+                    <Carousel className='carousel' autoPlay="true" animation='slide' duration="1000" interval="6000">
+                            <div>
+                                <text class="quote">
+                                    Registre seu tempo com segurança e de forma simples!
+                                </text>
+                                <img src="mobile_posts.svg" alt="" srcset="" width={400}/>
+                            </div>
+
+                            <div>
+                                <text class="quote">
+                                    Controle seu tempo com poucos cliks!
+                                </text>
+                                <img src="time_management.svg" alt="" srcset="" width={400}/>
+                            </div>
+                    </Carousel>
                 </div>
             </section>
             

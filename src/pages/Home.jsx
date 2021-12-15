@@ -7,6 +7,7 @@ import '../styles/session.scss';
 import { useAuth } from "../providers/auth";
 import logTime from "../service/logTime";
 import getTime from "../utils/GetTime";
+import Button from '@mui/material/Button';
 
 
 const Home = _props => {
@@ -118,16 +119,14 @@ const Home = _props => {
                         </div>
 
                         <div class="buttons">
-                            <button
-                                onClick={log}
-                            >Registrar tempo</button>
-                            <button
-                                onClick={() => history.push('/logs')}
-                                class="second-button">Ver minhas horas
-                            </button>
+                            <Button className='button' variant="contained" type='submit' onClick={log}>
+                                Registrar tempo
+                            </Button >
+                            <Button className='button' variant="contained" type='submit' onClick={() => history.push('/logs')}>
+                                Ver minhas horas
+                            </Button >
                         </div>
                     </div>
-
                 </form>
             </div>
 
