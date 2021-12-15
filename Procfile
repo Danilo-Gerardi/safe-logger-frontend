@@ -1,1 +1,1 @@
-npm run $PROFILE
+env-cmd -f .env.release react-scripts start
