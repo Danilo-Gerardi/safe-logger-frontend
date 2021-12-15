@@ -25,7 +25,7 @@ const Home = _props => {
         return array.join('');
     }
 
-
+ 
     function findTodayLogs(_organizationDocument, _token) {
 
         getTodayLogs((data) => {
