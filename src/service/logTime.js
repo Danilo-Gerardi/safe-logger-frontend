@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getCoordinates from './geolocation/getCoordinates';
 
-const url = 'http://localhost:8080/v1/log/';
+const url = process.env.REACT_APP_BACK_END_API + '/v1/log/';
 
 const logTime = (organizationDocument, token, resolve, reject) => {
 
