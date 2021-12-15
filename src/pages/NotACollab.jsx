@@ -8,7 +8,6 @@ import { useAuth } from "../providers/auth";
 import logTime from "../service/logTime";
 import getTime from "../utils/GetTime";
 
-
 const NotACollab = props => {
     const { user } = useAuth();
 
@@ -19,7 +18,6 @@ const NotACollab = props => {
         array[0] = array[0].toUpperCase();
         return array.join('');
     }
-
 
     function findTodayLogs() {
         getTodayLogs((data) => {
@@ -32,7 +30,6 @@ const NotACollab = props => {
     useEffect(() => {
         findTodayLogs()
     }, []);
-
 
     function log(e) {
         e.preventDefault();
@@ -50,9 +47,6 @@ const NotACollab = props => {
                 console.log('DEU RUIM')
             });
     }
-
-
-
 
     setTimeout(() => {
         if (!localStorage.getItem('user')) {
@@ -88,10 +82,6 @@ const NotACollab = props => {
                 <h1 >Você ainda não pode logar horas</h1>
                 <h2>É preciso que uma empresa te indique como seu colaborador</h2>
             </div>
-
-
-
-            <footer class="session-footer"></footer>
 
         </div>
 

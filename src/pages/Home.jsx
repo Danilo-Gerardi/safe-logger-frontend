@@ -131,9 +131,6 @@ const Home = _props => {
                 </form>
             </div>
 
-
-            <footer class="session-footer"></footer>
-
         </div>
 
     )

@@ -122,7 +122,7 @@ const SignUp = props => {
                             label="Confirme a senha" 
                             variant="outlined" 
                         />
-                        <Button className='button' variant="contained" type='submit'>
+                        <Button className='button' variant="contained" type='submit' onClick={handleCreateUser}>
                             Criar
                         </Button >
                         <Button className='button' variant="contained" onClick={() => history.push('/signup/business')}>
