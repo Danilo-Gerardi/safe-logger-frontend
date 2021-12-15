@@ -6,6 +6,8 @@ import '../styles/login.scss';
 import { cnpj } from 'cpf-cnpj-validator';
 import errorStyles from '../styles/errors/errorStyle';
 import getCoordinates from '../service/geolocation/getCoordinates';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 const SignUpBusiness = props => {
@@ -78,58 +80,60 @@ const SignUpBusiness = props => {
 
                     <h2>Conta Business</h2>
                     <form>
-                        <input
+                        <TextField 
+                            className="input"
                             type="text"
-                            placeholder="Nome"
                             onChange={e => {
                                 setName(e.target.value)
                             }}
                             value={name}
+                            label="Nome" 
+                            variant="outlined" 
                         />
-                        <input
-                            className={classe}
+                        <TextField 
+                            className="input"
                             type="text"
-                            placeholder="Cpnj"
                             onChange={e => handleChangeStyle(e.target.value)}
                             value={document}
-
+                            label="CNPJ" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="email"
                             type="text"
-                            placeholder="Email"
                             onChange={e => {
                                 setLogin(e.target.value)
                             }}
                             value={email}
                             onClick={errorStyles[0]}
+                            label="Email" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             id="password"
                             type="password"
-                            placeholder="Senha"
                             onChange={e => {
                                 setPassword(e.target.value)
                             }}
                             value={password}
                             onClick={errorStyles[0]}
-
+                            label="Senha" 
+                            variant="outlined" 
                         />
-                        <input
+                        <TextField 
+                            className="input"
                             type="password"
-                            placeholder="Confirme a senha"
-
+                            label="Confirme a senha" 
+                            variant="outlined" 
                         />
-                        <button onClick={handleCreateUser}>
+                        <Button className='button' variant="contained" type='submit' onClick={handleCreateUser}>
                             Criar
-                        </button>
-                        <button onClick={(e) => {
-                            e.preventDefault();
-                            history.push('/signup');
-
-                        }}>
+                        </Button >
+                        <Button className='button' variant="contained" onClick={() => history.push('/signup')}>
                             Criar Conta Usuário
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </section>
