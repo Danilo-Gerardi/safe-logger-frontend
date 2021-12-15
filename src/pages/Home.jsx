@@ -24,7 +24,7 @@ const Home = _props => {
         array[0] = array[0].toUpperCase();
         return array.join('');
     }
-
+ 
 
     function findTodayLogs(_organizationDocument, _token) {
 
