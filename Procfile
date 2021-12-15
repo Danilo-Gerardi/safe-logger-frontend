@@ -1,1 +1,1 @@
-env-cmd -f $PROFILE react-scripts start
+web: npm run $PROFILE 
