@@ -1,1 +1,1 @@
-web: npm run $PROFILE 
+web: npm run $PROFILE
