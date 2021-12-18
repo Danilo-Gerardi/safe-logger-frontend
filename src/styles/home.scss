@@ -5,7 +5,7 @@ main {
 }
 
 .login-container {
-    width: 50%;
+    width: 40%;
     height: 100vh;
     display: flex;
     background-color: rgb(255, 255, 255); 
@@ -13,7 +13,7 @@ main {
 
 .right-container {
     background-color: $gray-color;
-    width: 50%;
+    width: 60%;
     display: flex;
 }
 
@@ -82,4 +82,13 @@ h1 {
     margin: auto;
     margin-top: 40px;
     width: 100%;
+}
+
+@media (max-width: 800px) {
+    .right-container {
+        display: none;
+    }
+    .login-container {
+        width: 100%;
+    }
 }

@@ -79,14 +79,14 @@ const SignIn = props => {
                                 <text class="quote">
                                     Registre seu tempo com segurança e de forma simples!
                                 </text>
-                                <img src="mobile_posts.svg" alt="" srcset="" width={400}/>
+                                <img src="mobile_posts.svg" alt="" srcset="" width={350}/>
                             </div>
 
                             <div>
                                 <text class="quote">
                                     Controle seu tempo com poucos cliks!
                                 </text>
-                                <img src="time_management.svg" alt="" srcset="" width={400}/>
+                                <img src="time_management.svg" alt="" srcset="" width={350}/>
                             </div>
                     </Carousel>
                 </div>

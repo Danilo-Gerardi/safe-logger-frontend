@@ -8,6 +8,8 @@ import '../styles/home.scss';
 import { useAuth } from "../providers/auth";
 import admitCollaborator from "../service/admitCollaborator";
 import { cpf } from 'cpf-cnpj-validator';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 const HomeBusiness = props => {
@@ -94,25 +96,27 @@ const HomeBusiness = props => {
                         <div class="date-info">
                             <span>{dayOfTheWeek}, </span>
                             <span>{moment().format('LL')}</span>
-                            <div>Digite o Cpf do colaborador a ser admitido</div>
+                            <div>Digite o CPF do colaborador a ser admitido</div>
                         </div>
                     </div>
 
                     <div class="container-form">
                         <div class="times">
-                            <input
-                                className={classe}
+                            <TextField 
+                                className="input"
                                 type="text"
                                 onChange={e => validateCpf(e.target.value)}
                                 value={cpfNum}
                                 onClick={e => e.target.value = ""}
+                                label="CPF" 
+                                variant="outlined" 
                             />
                         </div>
                         <div id="cpfInput" className="msg-colaborator-admitted">Coloborador admitido!</div>
                         <div class="buttons">
-                            <button
-                                onClick={admitColaborator}
-                            >Admitir Colaborador</button>
+                            <Button className='button' variant="contained" type='submit' onClick={admitColaborator}>
+                                Admitir Colaborador
+                            </Button >
                         </div>
                     </div>
 
