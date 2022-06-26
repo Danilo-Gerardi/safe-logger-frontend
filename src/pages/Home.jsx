@@ -4,7 +4,6 @@ import moment from 'moment';
 import getTodayLogs from "../service/getTodayLogs";
 import 'moment/locale/pt-br'
 import '../styles/session.scss';
-import { useAuth } from "../providers/auth";
 import logTime from "../service/logTime";
 import getTime from "../utils/GetTime";
 import Button from '@mui/material/Button';
@@ -72,7 +71,7 @@ const Home = _props => {
             <header class="session-header">
                 <div class="session-header-inner">
                     <span>
-                        Safe Logger
+                        LOGG3R
                     </span>
 
                     <span

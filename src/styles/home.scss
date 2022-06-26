@@ -22,9 +22,6 @@ img {
 }
 
 .time-track {
-    color: #1976d2;
-    font-size: 1.5cm;
-    font-weight: 800;
     text-align: center;
     margin: auto;
     width: 100%;
@@ -32,7 +29,17 @@ img {
 }
 
 .title {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+    color: #1976d2;
+    font-weight: 800;
+    font-size: 1.5cm;
+}
+
+.title-mini {
+    margin-bottom: 80px;
+    color: #1976d2;
+    font-weight: 800;
+    font-size: 1cm;
 }
 
 .quote {
@@ -62,7 +69,6 @@ img {
 h1 {
     font-size: 28px;
     text-align: center;
-    margin-top: 0px;
 }
 
 .create-account {
@@ -90,5 +96,20 @@ h1 {
     }
     .login-container {
         width: 100%;
+    }
+    .title-mini {
+        opacity: 100%;
+    }
+    h1 {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .title-mini {
+        opacity: 0%;
+    }
+    h1 {
+        margin-top: 0px;
     }
 }

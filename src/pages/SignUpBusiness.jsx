@@ -68,7 +68,7 @@ const SignUpBusiness = props => {
         <main>
             <section className="right-container">
                 <text
-                    onClick={() => history.push("/signin/business")}
+                    onClick={() => history.push("/signin")}
                     class="quote2"
                 >
                     VOLTAR AO LOGIN

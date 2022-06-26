@@ -69,14 +69,14 @@ const HomeBusiness = props => {
             <header class="session-header">
                 <div class="session-header-inner">
                     <span>
-                        Business
+                        LOGG3R Business
                     </span>
 
                     <span
                         onClick={
                             () => {
                                 localStorage.clear();
-                                history.push('/signin/business');
+                                history.push('/signin');
                             }
                         }
                         class="logout"

@@ -1,6 +1,7 @@
 import '../styles/home.scss';
 import { useHistory } from 'react-router';
-import userSignIn from '../service/userSignIn';
+import signIn from '../service/userSignIn';
+import organizationSignIn from '../service/organizationSignIn';
 import { useState } from 'react';
 import errorStyles from '../styles/errors/errorStyle';
 import Carousel from 'react-material-ui-carousel'
@@ -14,19 +15,31 @@ const SignIn = props => {
 
     function handleSignIn(e) {
         e.preventDefault();
-        userSignIn({ email, password }, () => {
-            if (JSON.parse(localStorage.getItem('user')).organizations[0]) {
-                history.push('/home')
-            } else {
-                history.push('/not-a-collab-yet')
-            }
-        }, errorStyles[1]);
+        signIn({ email, password }, 
+            () => {
+                if (JSON.parse(localStorage.getItem('user')).organizations[0]) {
+                    history.push('/home')
+                } else {
+                    history.push('/not-a-collab-yet')
+                }
+            },
+            () => {
+                e.preventDefault();
+                organizationSignIn({ email, password }, () => history.push('/home/business'), errorStyles[1]);
+            }, 
+            errorStyles[1]);
     }
 
     return (
         <main>
             <section className="login-container">
+                
+            <div class="time-track">
                 <div className="login-form">
+
+                    <text class="title-mini">
+                        LOGG3R
+                    </text>
 
                     <h1>Bem vindo!</h1>
                     <form onSubmit={handleSignIn}>
@@ -53,9 +66,6 @@ const SignIn = props => {
                         <Button className='button' variant="contained" type='submit'>
                             Entrar
                         </Button >
-                        <Button className='button' variant="contained" onClick={() => history.push('/signin/business')}>
-                            Sou Business
-                        </Button>
                         <div class="create-account">
                             <span>Não tem conta? </span>
                             <span class="click-here"
@@ -64,6 +74,7 @@ const SignIn = props => {
                         </div>
                     </form>
                 </div>
+                </div>
 
             </section>
 
@@ -71,7 +82,7 @@ const SignIn = props => {
                 <div class="time-track">
 
                     <text class="title">
-                        Safe Logger
+                        LOGG3R
                     </text>
 
                     <Carousel className='carousel' autoPlay="true" animation='slide' duration="1000" interval="6000">

@@ -62,7 +62,7 @@ const NotACollab = props => {
             <header class="session-header">
                 <div class="session-header-inner">
                     <span>
-                        Safe Logger
+                        LOGG3R
                     </span>
                     <span
                         onClick={

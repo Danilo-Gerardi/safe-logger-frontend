@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import SignIn from './pages/SignIn';
-import SignInBusiness from './pages/SignInBusiness';
 import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
 import Home from './pages/Home';
@@ -20,7 +19,6 @@ function App() {
             <Route path="/signin" exact component={SignIn} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/home" exact component={Home} />
-            <Route path="/signin/business" component={SignInBusiness} />
             <Route path="/not-a-collab-yet" component={NotACollab} />
             <Route path="/signup/business" component={SignUpBusiness} />
             <Route path="/home/business" component={HomeBusiness} />
