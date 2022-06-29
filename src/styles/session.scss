@@ -1,4 +1,5 @@
 .session-header {
+    z-index: 10;
     background-color: rgb(255, 255, 255);
     height: 50px;
     color: black;
@@ -19,8 +20,6 @@
         color: magenta;
         cursor: pointer;    
     }
-
-    
 }
 
 .session-form {
@@ -28,9 +27,7 @@
     flex-direction: column;
     width: 400px;
     margin: auto;
-    
     text-align: center;
-    
 }
 
 .greeting {
@@ -41,7 +38,6 @@
     font-weight: 600;
     color: rgb(83, 80, 80);
     // border: 1px black solid;
-    
 }
 
 .date-info {
@@ -70,8 +66,6 @@
     background-color: #f2f4f8;
     display: flex;
     flex-direction: column;
-    
-    
 }
 
 .middle {

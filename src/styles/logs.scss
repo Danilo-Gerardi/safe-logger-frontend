@@ -1,24 +1,32 @@
 .log-table {
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-    margin: 10px auto;
-    font-size: larger;
+    z-index: 0;
     font-family: Lato-Regular;
     font-weight: 900;
-    text-align: center;
-    align-items: center;
     color: rgb(83, 80, 80);
-    
-    
-    div{
+    display: flex;
+
+    .date {
+        z-index: 5;
+        min-width: 180px;
+        box-shadow: 5px 0px 0px 0px rgba($color: #000000, $alpha: 0.1); 
+    }
+
+    .teste2 {
+        min-width: 60px; 
+    }   
+
+    div {
+        margin-top: 2px;
+        margin-right: 5px;
+        background-color: white;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px rgb(83, 80, 80) solid;
-        height: 50px;
-        flex-grow: 1;
-        width: 30px; 
-    }   
+    }
 }
 
+.teste {
+    overflow: auto;
+    height: 100%;
+}

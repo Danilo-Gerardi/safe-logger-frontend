@@ -1,23 +1,14 @@
 import React from "react";
+import getTime from '../utils/GetTime';
+import getDate from '../utils/GetDate';
 
 export default function Log(props) {
     return (
         <div class="log-table">
-            <div>{props.data}</div> 
-            <div>{props.start}</div> 
-            <div>{props.finish}</div>
+            <div class="date">{getDate(props.date)}</div> 
+            {props.times.map((element) => {
+                return <div class="teste2">{getTime(element)}</div>
+            })}
         </div>
     );
 }
-
-// const log = props => {
-//     return (
-//         <div class="log-table">
-//             <div>{props.data}</div> 
-//             <div>{props.start}</div> 
-//             <div>{props.finish}</div>
-//         </div>
-//     );
-// }
-
-// export default log;

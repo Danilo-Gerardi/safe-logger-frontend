@@ -4,8 +4,6 @@ import '../styles/logs.scss';
 import getAllUserLogs from '../service/getAllUserLogs';
 import Log from '../components/LogsComponent';
 import { useHistory } from 'react-router';
-import getDate from '../utils/GetDate';
-import getTime from '../utils/GetTime';
 
 const Logs = props => {
     const history = useHistory();
@@ -20,8 +18,26 @@ const Logs = props => {
 
     function renderLogs() {
         return (
-            <div>
-              {logList.map((value) => <Log data={getDate(value.start)} start={getTime(value.start)} finish={getTime(value.finish)}/>)}
+            <div class="teste">
+                <section class="log-table">
+                    <div class="date">Data</div>
+                    <div class="teste2">E1</div>
+                    <div class="teste2">S1</div>
+                    <div class="teste2">E2</div>
+                    <div class="teste2">S2</div>
+                    <div class="teste2">E3</div>
+                    <div class="teste2">S3</div>
+                    <div class="teste2">E4</div>
+                    <div class="teste2">S4</div>
+                    <div class="teste2">E5</div>
+                    <div class="teste2">S5</div>
+                    <div class="teste2">E6</div>
+                    <div class="teste2">S6</div>
+                    <div class="teste2">E7</div>
+                    <div class="teste2">S7</div>
+                </section>
+
+                {logList.map((value) => <Log date={value.date} times={value.times}/>)}
             </div>
           )
     }
@@ -39,7 +55,7 @@ const Logs = props => {
                     </span>
 
                     <span
-                        onClick={() => history.push('/signup')}
+                        onClick={() => history.push('/signin')}
                         class="logout"
                     >
                         Logout
@@ -47,11 +63,6 @@ const Logs = props => {
 
                 </div>
             </header>
-            <section class="log-table">
-                <div>Data</div>
-                <div>Inicio</div>
-                <div>Fim</div>
-            </section>
 
             {renderLogs()}
 
