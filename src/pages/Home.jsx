@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router';
 import moment from 'moment';
 import getTodayLogs from "../service/getTodayLogs";
+import getCollaborator from "../service/getCollaborator";
 import 'moment/locale/pt-br'
 import '../styles/session.scss';
 import logTime from "../service/logTime";
 import getTime from "../utils/GetTime";
 import Button from '@mui/material/Button';
-
 
 const Home = _props => {
 
@@ -15,8 +15,10 @@ const Home = _props => {
 
     const [start, setStart] = useState("--:--");
     const [finish, setFinish] = useState("--:--");
+    const [collaboratorType, setCollaboratorType] = useState("PRESENTLY");
 
     const organizationDocument = JSON.parse(localStorage.getItem('user')).organizations[0].document;
+    const userDocument = JSON.parse(localStorage.getItem('user')).document;
     const token = JSON.parse(localStorage.getItem('jwt')).token;
 
     function toUpperCaseInTheFirstLetter(str) {
@@ -25,9 +27,7 @@ const Home = _props => {
         return array.join('');
     }
 
- 
     function findTodayLogs(_organizationDocument, _token) {
-
         getTodayLogs((data) => {
             console.log(data)
             data.start ? setStart(getTime(data.start)) : setStart("--:--");
@@ -35,10 +35,23 @@ const Home = _props => {
         }, _organizationDocument, _token)
     }
 
-    useEffect(() => {
-        findTodayLogs(organizationDocument, token)
-    }, []);
+    function findCollaborator(_userDocument, _token) {
+        getCollaborator((data) => {
+            data.collaboratorType ? setCollaboratorType(data.collaboratorType) : setStart("");
+        }, _userDocument, _token);
+    }
 
+    function IsCollaboratorRemotely() {
+        if ("REMOTELY" === collaboratorType) {
+            return <Button className='button' variant="contained" type='submit' onClick={log}> Registrar tempo </Button >
+        }
+        return <div></div>
+    }
+
+    useEffect(() => {
+        findTodayLogs(organizationDocument, token);
+        findCollaborator(userDocument, token);
+    }, []);
 
     function log(e) {
         e.preventDefault();
@@ -54,9 +67,6 @@ const Home = _props => {
             });
     }
 
-
-
-
     setTimeout(() => {
         if (!localStorage.getItem('user')) {
             history.push('/')
@@ -70,7 +80,7 @@ const Home = _props => {
 
             <header class="session-header">
                 <div class="session-header-inner">
-                    <span>
+                    <span class="color-blue">
                         LOGG3R
                     </span>
 
@@ -118,9 +128,8 @@ const Home = _props => {
                         </div>
 
                         <div class="buttons">
-                            <Button className='button' variant="contained" type='submit' onClick={log}>
-                                Registrar tempo
-                            </Button >
+                            <IsCollaboratorRemotely/>
+
                             <Button className='button' variant="contained" type='submit' onClick={() => history.push('/logs')}>
                                 Ver minhas horas
                             </Button >

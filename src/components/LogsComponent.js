@@ -7,7 +7,7 @@ export default function Log(props) {
         <div class="log-table">
             <div class="date">{getDate(props.date)}</div> 
             {props.times.map((element) => {
-                return <div class="teste2">{getTime(element)}</div>
+                return <div class="column">{getTime(element)}</div>
             })}
         </div>
     );

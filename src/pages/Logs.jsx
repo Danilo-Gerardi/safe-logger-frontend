@@ -18,23 +18,23 @@ const Logs = props => {
 
     function renderLogs() {
         return (
-            <div class="teste">
+            <div class="headerLogs">
                 <section class="log-table">
                     <div class="date">Data</div>
-                    <div class="teste2">E1</div>
-                    <div class="teste2">S1</div>
-                    <div class="teste2">E2</div>
-                    <div class="teste2">S2</div>
-                    <div class="teste2">E3</div>
-                    <div class="teste2">S3</div>
-                    <div class="teste2">E4</div>
-                    <div class="teste2">S4</div>
-                    <div class="teste2">E5</div>
-                    <div class="teste2">S5</div>
-                    <div class="teste2">E6</div>
-                    <div class="teste2">S6</div>
-                    <div class="teste2">E7</div>
-                    <div class="teste2">S7</div>
+                    <div class="column">E1</div>
+                    <div class="column">S1</div>
+                    <div class="column">E2</div>
+                    <div class="column">S2</div>
+                    <div class="column">E3</div>
+                    <div class="column">S3</div>
+                    <div class="column">E4</div>
+                    <div class="column">S4</div>
+                    <div class="column">E5</div>
+                    <div class="column">S5</div>
+                    <div class="column">E6</div>
+                    <div class="column">S6</div>
+                    <div class="column">E7</div>
+                    <div class="column">S7</div>
                 </section>
 
                 {logList.map((value) => <Log date={value.date} times={value.times}/>)}
@@ -52,6 +52,10 @@ const Logs = props => {
                         class="logout"
                     >
                         Voltar
+                    </span>
+                    
+                    <span class="color-blue">
+                        LOGG3R
                     </span>
 
                     <span
